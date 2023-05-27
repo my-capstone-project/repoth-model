@@ -30,4 +30,4 @@ async def create_upload_file(file: UploadFile):
   else:
     status = "pothole"
   
-  return {"filename": file.filename, "status": status}
+  return {"filename": file.filename, "status": status, "classes": classes[0]}
