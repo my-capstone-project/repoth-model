@@ -4,6 +4,7 @@ ARG GCLOUD_PROJECT_STG
 ARG GCLOUD_BUCKET
 ARG VERSION
 WORKDIR /models
+
 RUN echo ${KEY_FILE} | base64 -d > gcloud.json
 RUN gcloud auth activate-service-account --key-file gcloud.json
 RUN gcloud config set project ${GCLOUD_PROJECT_STG}
