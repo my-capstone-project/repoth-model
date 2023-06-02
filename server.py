@@ -7,6 +7,8 @@ from model import *
 
 app = FastAPI()
 
+DB = load_model()
+
 @app.get("/")
 def read_root():
   return {"Hello": "World"}
@@ -21,7 +23,7 @@ async def create_upload_file(file: UploadFile):
     image.write(content)
     image.close()
   
-  classes = predict(load_model(), "image.jpg")
+  classes = predict(DB, "image.jpg")
 
   print(classes[0])
 
