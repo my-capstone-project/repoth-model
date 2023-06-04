@@ -21,18 +21,18 @@ def read_root():
   return {"Hello": "World"}
 
 
-@app.post("/predict/")
-async def create_upload_file(file: UploadFile):
+@app.post("/predict")
+async def create_upload_file(image: UploadFile):
   
   # Hash file name
-  filename = file.filename
+  filename = image.filename
   hash_filename = hashlib.md5(filename.encode()).hexdigest() + pathlib.Path(filename).suffix
   
   # Write image
-  with open(hash_filename, 'wb') as image:
+  with open(hash_filename, 'wb') as img:
     content = await file.read()
-    image.write(content)
-    image.close()
+    img.write(content)
+    img.close()
   
   # Predict Image
   try:
