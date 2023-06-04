@@ -30,7 +30,7 @@ async def create_upload_file(image: UploadFile):
   
   # Write image
   with open(hash_filename, 'wb') as img:
-    content = await file.read()
+    content = await image.read()
     img.write(content)
     img.close()
   
