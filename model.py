@@ -5,7 +5,7 @@ from PIL import Image
 
 def load_model():
   # Recreate the exact same model, including its weights and the optimizer
-  model = tf.keras.models.load_model('model.h5')
+  model = tf.keras.models.load_model('model/model.h5')
 
   # Show the model architecture
   # model.summary()

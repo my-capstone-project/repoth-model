@@ -11,7 +11,7 @@
 # RUN gsutil -m cp -r ${GCLOUD_BUCKET}/${VERSION}/model.h5 /models
 
 FROM tensorflow/tensorflow
-RUN pip install Pillow fastapi uvicorn[standard] python-multipart
+RUN pip install Pillow fastapi uvicorn[standard] python-multipart google-cloud-storage
 WORKDIR /app
 COPY . ./
 # COPY --from=bucket /models .
