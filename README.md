@@ -1,29 +1,27 @@
-# repoth-model
+# Repoth model
 
 REST API to predict model Repoth
 
-## How to use
+## Endpoint
+http://repoth.my.id:8000
 
-Create http request with `POST` https://`<cloudrun>`/predict/.
-  
-**input** with `form-data`
-- key   : file
-- value : `<image>`
+## Predict
+- URL
+  - `/predict`
+- Method
+  - `POST`
+- Request Body
+  - `image` as `file`
+- Response
 
-**output**
 ```json
 {
-  "filename": "<image-name>",
-  "status"  : "<normal | pothole>",
-  "classes" : "[<number-of-predict-result]"
-}
-```
-
-### Example of output:
-```json
-{
-  "filename": "road_smg.jpg",
-  "status"  : "pothole",
-  "classes" : "[0.344]"
+    "error": false,
+    "message": "Success Predict",
+    "result": {
+        "filename": "jalan.jpg",
+        "pothole": true,
+        "url": "https://storage.googleapis.com/potholeimages/jalan.jpg"
+    }
 }
 ```
